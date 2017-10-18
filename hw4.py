@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Sun Oct  8 23:02:18 2017
-
 @author: Zhoukx.joseph
 """
+
+# Question 1
 
 def split_by_sign(lst, low, high):
     if low > high:
@@ -15,6 +13,8 @@ def split_by_sign(lst, low, high):
     else:
         D.insert(0,lst[low])
     return D
+
+# Question 2
 
 def permutations(lst,low,high):
     if low == high == 0:
@@ -32,6 +32,8 @@ def permutations(lst,low,high):
 
 print(permutations([1,2,3,4],1,3))
 
+# Question 4(a)
+
 def find_duplicates(lst):
     L=[0]*len(lst)#create a list contains 0
     R=[]
@@ -45,21 +47,7 @@ def find_duplicates(lst):
             R.append(i)
     return R
 
-
-
-#def find_duplicates(lst):
-#    D={}
-#    for i in range(0,len(lst)):
-#        if lst[i] not in D:
-#            D[lst[i]]=1
-#        else:
-#            D[lst[i]]+=1
-#    L=[i for i in D if D[i]!=1]
-#    return L
-
-
-
-
+# Question 5(b)
 
 def remove_all(lst, value): 
     L=[]
@@ -67,6 +55,18 @@ def remove_all(lst, value):
         if lst[i] != value:#check if the value is inside the list.
             L.append(lst[i])
     lst[:]=L#doesn't return the list
+
+def remove_all(lst, value):
+    count = 0
+    for i in range(len(lst)):
+        if lst[i]!=value:
+            lst[i-count]=lst[i]
+        else:
+            count+=1
+    for i in range(count):
+        lst.pop()
+
+# Question 3 MyList Class
 
 import ctypes  # provides low-level arrays
 def make_array(n):
@@ -170,27 +170,3 @@ class MyList:
         if self.n < (self.capacity//4):#shrinking the size
             self.resize(self.capacity//2)
         return poped
-
-
-def remove_all2(lst, value):
-    found = False
-    i = 0
-    while not found:
-        if lst[i] == value:
-            first = i
-            found = True
-        elif i == len(lst) - 1:
-            return
-        i += 1
-    replace = first + 1
-    while replace < len(lst):
-        while replace < len(lst) and lst[replace] == value:
-            replace += 1
-        if replace < len(lst):
-            temp = lst[first]
-            lst[first] = lst[replace]
-            lst[replace] = temp
-            first += 1
-        replace += 1
-    while len(lst) > first:
-        lst.pop()
