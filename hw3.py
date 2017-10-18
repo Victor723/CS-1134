@@ -1,11 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Mon Oct  2 09:21:47 2017
-
 @author: Zhoukx.joseph
 """
 
+# Question 3
 
 def print_triangle(n):
     if n == 0:#base statement
@@ -28,6 +25,7 @@ def print_rulers(n):
     print_rulers(n-1)#it recurs 2**n times, so two recursions inside one function
     #can make the shape of the rulers.
 
+# Question 4
 
 def list_min(lst,low,high):
     if low == high: return lst[low]#base statement
@@ -37,6 +35,7 @@ def list_min(lst,low,high):
         lst[low+1]=lst[low]#if yes, assign the current one to the next one
         return list_min(lst,low+1,high)
 
+# Question 5(a)
 
 def count_lowercase(s,low,high):
     if low>high:#base statment
@@ -47,7 +46,8 @@ def count_lowercase(s,low,high):
         else:
             return 0+ count_lowercase(s,low+1,high)#if no, +0
 
-
+# Question 5(b)
+        
 def is_number_of_lowercase_even(s, low, high):
     if low == high:
         return s[low].isupper()#let even be true, odd be false.
@@ -55,22 +55,7 @@ def is_number_of_lowercase_even(s, low, high):
     #then compare it to the second last one, if it's also lowercase, return True
         return s[low].isupper()==is_number_of_lowercase_even(s,low+1,high)
 
-"because we cannot use global variable, and I don't want to delete it..."
-#Cannot use global variable
-#    global counter
-#    if low > high:
-#        if counter%2 ==0:
-#            return True
-#        else:
-#            return False
-#    if s[low].islower:
-#        counter+=1
-#        return is_number_of_lowercase_even(s,low+1,high)
-#    else:
-#        return is_number_of_lowercase_even(s,low+1,high)
-#counter=0
-#print(is_number_of_lowercase_even('abc',0,2))
-
+# Question 6
 
 def appearance(s,low,high):
     if low > high:#base statement
@@ -82,15 +67,14 @@ def appearance(s,low,high):
         dict[s[low]]+=1
     return dict#return dict
 
+# Question 7
 
 def flat_list(nested_lst,low,high):
     if low > high:#base statement
         return []
     if isinstance(nested_lst[low],list):#check if it's a list inside a list
-    #change low and high to 0 and the according length, return a copy list[1:], if it's the last element
-    #inside the original list, the new list contains nothing.
         return flat_list(nested_lst[low],0,len(nested_lst[low])-1)+flat_list(nested_lst,low+1,high)
-    else:#if it's not a list inside a list, return the current number, and return a copy list[1:]
+    else:
         return [nested_lst[low]]+flat_list(nested_lst,low+1,high)
 
 L=[[1,2],2,3,[4,5,[6,7],8]]
