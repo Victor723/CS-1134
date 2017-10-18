@@ -1,10 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Wed Sep 20 19:32:12 2017
-
 @author: Zhoukx.joseph
 """
+# Question 2
 
 def shift(lst, k, str="left"):
     if str == "left":
@@ -18,8 +15,10 @@ def shift(lst, k, str="left"):
             del lst[0]
         return lst
 
-L=[1,2,3,4,5,6]
-print(shift(L,2))
+# L=[1,2,3,4,5,6]
+# print(shift(L,2))
+
+# Question 3
 
 def sum_square1(n):
     u = 0
@@ -40,10 +39,12 @@ def sum_odd_square1(n):
 def sum_odd_square2(n):
     return sum([i ** 2 for i in range(n) if i % 2==1])
 
-print(sum_square1(5))
-print(sum_square2(5))
-print(sum_odd_square1(6))
-print(sum_odd_square2(5))
+#print(sum_square1(5))
+#print(sum_square2(5))
+#print(sum_odd_square1(6))
+#print(sum_odd_square2(5))
+
+# Question 4
 
 def fibs(n):
     i = 0
@@ -59,11 +60,10 @@ def fibs(n):
 for i in fibs(9):
     print(i)
 
+# Question 5
 print([10**i for i in range(6)])
 print([x*(x+1) for x in range(10)])
-from string import ascii_lowercase
-print([list(ascii_lowercase)[i] for i in range(len(list(ascii_lowercase)))])
-'''Is there any other way to solve this problem, problem 3?'''
+print([chr(i) for i in range(97,123)])
 
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
