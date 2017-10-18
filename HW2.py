@@ -1,10 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Fri Sep 22 21:39:43 2017
-
 @author: Zhoukx.joseph
 """
+# Question 3
 def factors(num):
     L = []
     for x in range(1,int(num**(1/2))+1):
@@ -17,6 +14,7 @@ def factors(num):
 for i in factors(100):
     print(i)
 
+# Question 4
 def e_approx(n):
     e = 1
     factorial = 1
@@ -30,30 +28,9 @@ for n in range(1):
     approx_str = "{:.15f}".format(curr_approx)
     print("n =", n, "Approximation:", approx_str)
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Sep 22 22:03:30 2017
-
-@author: Zhoukx.joseph
-"""
+# Question 5
 
 def split_parity(lst):
-    count = 0
-    for i in range(len(lst)):
-        if lst[i] % 2 == 0:
-            lst.append(lst[i])
-            count +=1
-    for i in range(len(lst)):
-        if lst[i] % 2 == 1:
-            lst.append(lst[i])
-            count +=1
-    for i in range(count):
-        lst[i]=lst.pop()
-    return lst
-L=[1,2,3,4,5,6,7,9,10,10,11]
-
-def split_parity2(lst):
     n=len(lst)
     for i in range(n):
         if lst[i]%2==0:
@@ -64,7 +41,10 @@ def split_parity2(lst):
     for i in range(n):
         lst[i]=lst.pop()
     return lst
-print(split_parity2(L))
+L=[1,2,3,4,5,6,7,9,10,10,11]
+print(split_parity(L))
+
+#  Question 6
 
 def two_sum(lst,target):
     L={(target-lst[i]):i for i in range(len(lst))}
@@ -75,6 +55,8 @@ def two_sum(lst,target):
         
 srt_lst=[-2, 7, 11, 15, 20, 21]
 print(two_sum(srt_lst,22))
+
+# Question 7
 
 def findChange(lst):
     start = 0
@@ -90,4 +72,6 @@ def findChange(lst):
                 return int(round((start+end)/2))
             end-=int(round((start+end)/2))
 
+'Look back to the original code, it looks funny hahahahah'
 L=[0,0,1,1,1,1]
+print(findChange(L))
